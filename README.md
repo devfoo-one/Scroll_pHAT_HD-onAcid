@@ -28,7 +28,7 @@ They provide 6 pins:
 
 You just have to solder them in a row (*5V* to *5V*, *GND* to *GND* and *Dout* to *Din*) to make them work.
 
-![MISSINGPIC](MISSINGPIC)
+![LED pins](img/led_pins.jpg)
 
 [Adafruit](https://www.adafruit.com/) provides libraries for addressing WS2812B LED´s because they sell NeoPixel´s which are also compatible to this controller.
 That means we can rely on [quality Adafruit library stuff](https://learn.adafruit.com/neopixels-on-raspberry-pi?view=all) here.
@@ -53,13 +53,13 @@ I decided to connect
 - *GND* to pin 34 (black line)
 - *Din* to pin 40 / GPIO 21 (green line)
 
-![wiring front](img/IMG_1692.jpg)
+![wiring front](img/front.jpg)
 
-![wiring back](img/IMG_1694.jpg)
+![wiring back](img/back.jpg)
 
-![wiring detail](img/IMG_1696.jpg)
+![wiring detail](img/detail.jpg)
 
-![top view](img/IMG_1693.jpg)
+![top view](img/top.jpg)
 
 
 ## Software
