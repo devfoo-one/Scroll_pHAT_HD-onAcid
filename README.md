@@ -2,7 +2,7 @@
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/zu3m-J5docg/0.jpg)](https://www.youtube.com/watch?v=zu3m-J5docg)
 
-I´ve decided to add another layer of awesomeness to my [Pimoroni Scroll pHAT HD](https://shop.pimoroni.com/products/scroll-phat-hd) by adding some fancy RGB LEDs to make it even more blinkier.
+I´ve decided to add another layer of awesomeness to my [Pimoroni Scroll pHAT HD](https://shop.pimoroni.com/products/scroll-phat-hd) by adding some fancy RGB LEDs to make it even more blinky.
 
 ## Hardware
 
@@ -14,7 +14,7 @@ The setup presented here basically consists of three parts:
 
 ### Assembly
 
-I already had an assembled Scoll pHAT lying around, so i´ll leave this step out (it´s basically just soldering a pin socket onto it).
+I already had an assembled Scroll pHAT lying around, so I´ll leave this step out (it´s basically just soldering a pin socket onto it).
 
 #### Building the WS2812B LED Strip
 
@@ -30,24 +30,24 @@ You just have to solder them in a row (*5V* to *5V*, *GND* to *GND* and *Dout* t
 
 ![LED pins](img/led_pins.jpg)
 
-[Adafruit](https://www.adafruit.com/) provides libraries for addressing WS2812B LED´s because they sell NeoPixel´s which are also compatible to this controller.
+[Adafruit](https://www.adafruit.com/) provides libraries for addressing WS2812B LEDs because they sell NeoPixels, which are also compatible with this controller.
 That means we can rely on [quality Adafruit library stuff](https://learn.adafruit.com/neopixels-on-raspberry-pi?view=all) here.
 
-I chose the [direct wiring method](https://learn.adafruit.com/neopixels-on-raspberry-pi?view=all#powering-neopixels-from-raspberry-pi-without-level-shifting-3-6) which works for me but may not work for everyone, because:
+I chose the [direct wiring method](https://learn.adafruit.com/neopixels-on-raspberry-pi?view=all#powering-neopixels-from-raspberry-pi-without-level-shifting-3-6), which works for me but may not work for everyone, because:
 
 - The power consumption of the LEDs could overload the Raspberry Pi´s 5V outlet.
-- The Raspberry Pi only provides 3.3V on its output pins, while the LED controller expects a level of 5V. Nevertheless, there are tolerances which may make it work with less than 5V. If it does not, then you need a level shifter.
+- The Raspberry Pi only provides 3.3V on its output pins, while the LED controller expects a level of 5V. Nevertheless, there are tolerances that may make it work with less than 5V. If it does not, then you need a level shifter.
 
 [(It also seems to be best practice to place a resistor before the first data pin and/or add a buffering capacitor.)](https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices)
 
 Anyway, the "direct wiring" approach works for me.
 
-#### Attaching the Strip to the Scoll pHAT HD
+#### Attaching the Strip to the Scroll pHAT HD
 
 *(Please note the professional way of attaching with incredible amounts of hot glue.)*
 
-The Scroll pHAT only [uses 3 GPIO pins (2, 3 and 5)](https://pinout.xyz/pinout/scroll_phat_hd). According to Adafruit, *"NeoPixels must be connected to GPIO10, GPIO12, GPIO18 or GPIO21 to work! GPIO18 is the standard pin."*.
-I decided to connect
+The Scroll pHAT only [uses 3 GPIO pins (2, 3 and 5)](https://pinout.xyz/pinout/scroll_phat_hd). According to Adafruit, *"NeoPixels must be connected to GPIO10, GPIO12, GPIO18, or GPIO21 to work! GPIO18 is the standard pin."*.
+I decided to connect:
 
 - *5V* to pin 4 (red line)
 - *GND* to pin 34 (black line)
@@ -68,9 +68,9 @@ I decided to connect
 
 ### OS
 
-I like to run my Raspberry Pi´s with [DietPi](https://dietpi.com/), a lightweight minimal distribution. For the Scroll pHAT, *i2c* needs to be enabled, so make sure it is by running `dietpi-config` and check *Advanced Options - I2c state* if it says "Enabled".
+I like to run my Raspberry Pi´s with [DietPi](https://dietpi.com/), a lightweight, minimal distribution. For the Scroll pHAT, *i2c* needs to be enabled, so make sure it is by running `dietpi-config` and check *Advanced Options - I2c state* if it says "Enabled."
 
-It is recommended to perform the following steps as user `dietpi` (not `root`).
+It is recommended to perform the following steps as the user `dietpi` (not `root`).
 
 ### Libraries
 
@@ -101,7 +101,7 @@ python3 ~/Pimoroni/scrollphathd/examples/swirl.py
 
 ### LED´s
 
-To test the LED´s i used the [rpi_neopixel_simpletest.py](https://github.com/adafruit/Adafruit_CircuitPython_NeoPixel/blob/master/examples/rpi_neopixel_simpletest.py) example from Adafruit.
+To test the LEDs, I used the [rpi_neopixel_simpletest.py](https://github.com/adafruit/Adafruit_CircuitPython_NeoPixel/blob/master/examples/rpi_neopixel_simpletest.py) example from Adafruit.
 Within the script, set `pixel_pin` and `num_pixels` according to your setup (in this case here `pixel_pin = board.D21` and `num_pixels = 13`.
 Be aware that the NeoPixel library needs root privileges to run.
 
@@ -109,4 +109,4 @@ Be aware that the NeoPixel library needs root privileges to run.
 sudo python3 rpi_neopixel_simpletest.py
 ```
 
-(After closing the script, the LED´s stay on.)
+(After closing the script, the LEDs stay on.)
